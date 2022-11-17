@@ -1,21 +1,21 @@
 import React from "react";
 import "./App.css";
-import Home from "./pages/Home";
-import Search from "./pages/Search"
-import SearchPage from "./SearchPage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 function App() {
   return (
-    //BEM
     <div className="App">
       <Router>
-        <Routes>
-          <Route path="/search" element={<SearchPage hideButtons />}>
+        <Switch>
+          <Route path={"/search"}>
+            <SearchPage />
           </Route>
-          <Route path="/" element={<Home />}>
+          <Route path={"/"}>
+            <HomePage />
           </Route>
-        </Routes>
+        </Switch>
       </Router>
     </div>
   );
